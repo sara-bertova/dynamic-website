@@ -32,9 +32,12 @@ function showDish(dish) {
     clone.querySelector(".image").src = smallImg;
 
     if (dish.discount) {
-        clone.querySelector(".price").style.textDecoration = "line-through"
+        clone.querySelector(".price").style.textDecoration = "line-through";
+        const newPrice = Math.round(dish.price - dish.price * dish.discount / 100 );
+        clone.querySelector(".discount span").textContent = newPrice;
     } else {
-        clone.querySelector(".dis").remove()
+        clone.querySelector(".dis").remove();
+        clone.querySelector(".discount").remove();
     }
 
     if (dish.vegetarian) {
@@ -45,9 +48,6 @@ function showDish(dish) {
         clone.querySelector("article").style.backgroundColor = "#C73A41"
         clone.querySelector("article").style.opacity = "25%"
         /*clone.querySelector("article").classList.add(".soldout")*/
-        console.log("yeah")
-    } else {
-        console.log("nah")
     }
 
     document.querySelector("#dw").appendChild(clone);
