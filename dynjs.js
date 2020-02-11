@@ -1,10 +1,36 @@
-fetch("https://kea-alt-del.dk/t5/api/productlist")
+fetch("https://kea-alt-del.dk/t5/api/categories")
     .then(function (response) {
         return response.json()
     })
     .then(function (data) {
-        showData(data)
+        createCategories(data)
     })
+
+function createCategories(jsonData){
+    jsonData.forEach(function(oneCat){
+        const a = document.createElement("a");
+        a.setAttribute("href", `#${oneCat}`);
+        document.querySelector("header>nav").appendChild(a);
+        a.textContent = oneCat;
+        const section = document.createElement("section");
+        section.id = oneCat;
+        const h2 = document.createElement("h2");
+        h2.textContent = oneCat;
+        section.appendChild(h2);
+        document.querySelector("main").appendChild(section);
+    })
+    getProducts();
+}
+
+function getProducts() {
+    fetch("https://kea-alt-del.dk/t5/api/productlist")
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            showData(data)
+        })
+}
 
 function showData(jsonData) {
     console.log(jsonData)
@@ -33,7 +59,7 @@ function showDish(dish) {
 
     if (dish.discount) {
         clone.querySelector(".price").style.textDecoration = "line-through";
-        const newPrice = Math.round(dish.price - dish.price * dish.discount / 100 );
+        const newPrice = Math.round(dish.price - dish.price * dish.discount / 100);
         clone.querySelector(".discount span").textContent = newPrice;
     } else {
         clone.querySelector(".dis").remove();
@@ -49,6 +75,6 @@ function showDish(dish) {
         clone.querySelector("article").style.opacity = "25%"
         /*clone.querySelector("article").classList.add(".soldout")*/
     }
-
-    document.querySelector("#dw").appendChild(clone);
+    document.querySelector(`#${dish.category}`).appendChild(clone);
+    /*document.querySelector("#dw").appendChild(clone);*/
 }
