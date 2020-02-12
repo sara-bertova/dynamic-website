@@ -76,7 +76,7 @@ article {
 
 article > button {
     margin-top: auto;
-    background: #752227;
+    background: #B39009;
     color: white;
     padding: 0.5rem;
     border: none;
@@ -91,7 +91,7 @@ article > button:hover {
 
 nav {
     background-color: black;
-    opacity: 85%;
+    opacity: 70%;
     font-size: 30px;
     text-align: right;
     font-weight: bold;
@@ -107,7 +107,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #FFA401;
+    color: #A8009D;
 }
 
 header {
@@ -119,11 +119,14 @@ h1 {
     font-family: 'Homemade Apple', cursive;
     font-size: 75px;
     text-align: center;
-    padding-top: 8%;
+    padding-top: 5%;
     color: white;
     text-shadow: 5px 7px 5px #000000;
 }
-
+#subheader{
+    font-size: 30px;
+    padding-top: 0%;
+}
 img {
     max-width: 100%;
     height: auto;
@@ -131,14 +134,15 @@ img {
 
 .veget {
     display: none;
-    max-width: 50%;
+    max-width: 30%;
+    margin-top: 5%;
 }
 .show{
     display:block;
 }
 .soldout{
-    background-color: #C73A41;
-    opacity: 25%;
+    /*background-color: #C73A41;*/
+    opacity: 15%;
 }
 
 .hide {
@@ -184,7 +188,7 @@ div.button {
 
 div.button a {
     text-decoration: none;
-    background-color: #FFA401;
+    background-color: #A8009D;
     padding: 1.5% 3% 1.5% 3%;
     font-weight: bold;
     font-size: 30px;
@@ -193,22 +197,24 @@ div.button a {
 
 div.button a:hover {
     background-color: white;
-    color: #FFA401;
+    color: #A8009D;
 }
 
 h3 {
     text-align: center;
     padding-bottom: 5%;
     font-size: 20px;
-    color: #752227;
+    color: #A8009D;
 }
-
 .price, .discount {
     text-align: center;
     font-style: italic;
     font-weight: bolder;
     font-size: 20px;
-    color: #FFA401;
+    color: #7D00FF;
+}
+.price{
+    color: #CCA714;
 }
 .discount span {
     font-size: 30px;

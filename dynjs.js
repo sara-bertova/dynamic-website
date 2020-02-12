@@ -45,9 +45,7 @@ function showData(jsonData) {
 
 function showDish(dish) {
 
-    const imageName = dish.image;
-    const base = "https://kea-alt-del.dk/t5/site/imgs/";
-    const smallImg = base + "small/" + imageName + "-sm.jpg";
+    const smallImg = getImageName(dish.image);
     const template = document.querySelector("#AllDishes").content;
     const clone = template.cloneNode(true);
 
@@ -56,7 +54,7 @@ function showDish(dish) {
     clone.querySelector(".ident span").textContent = dish.id;*/
     clone.querySelector(".sd").textContent = dish.shortdescription;
     /*clone.querySelector(".veg span").textContent = dish.vegetarian;*/
-    clone.querySelector(".alcohol span").textContent = dish.alcohol;
+    /*clone.querySelector(".alcohol").textContent = dish.alcohol;*/
     /*clone.querySelector(".dis span").textContent = dish.discount;*/
     /*clone.querySelector(".so span").textContent = dish.soldout;*/
     clone.querySelector(".price span").textContent = dish.price;
@@ -82,6 +80,13 @@ function showDish(dish) {
         clone.querySelector("article").classList.add("soldout")
     }
 
+    if(dish.alcohol != "0"){
+        console.log("yeah")
+        clone.querySelector(".alcohol").textContent = "Alcohol: " + `${dish.alcohol}` + "%";
+    }else{
+        clone.querySelector(".alcohol").textContent = "Alcohol free";
+    }
+
     clone.querySelector("button").addEventListener("click", () => {
     fetch(`https://kea-alt-del.dk/t5/api/product?id=${dish.id}`)
       .then(res => res.json())
@@ -91,9 +96,14 @@ function showDish(dish) {
     /*document.querySelector("#dw").appendChild(clone);*/
 }
 
+function getImageName(imageName){
+    const base = "https://kea-alt-del.dk/t5/site/imgs/";
+    return base + "small/" + imageName + "-sm.jpg";
+}
 function showDetails(data) {
   modal.querySelector(".modal-name").textContent = data.name;
   modal.querySelector(".modal-description").textContent = data.longdescription;
+    modal.querySelector(".modal-image").src = getImageName(data.image);
   modal.classList.remove("hide");
 }
 
