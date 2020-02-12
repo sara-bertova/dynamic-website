@@ -108,8 +108,7 @@ function showDetails(data) {
 }
 
 
-/*window.onscroll = function () {
-    stickybar()
+window.onscroll = function () {
     scrollFunction()
 };
 
@@ -126,4 +125,4 @@ function scrollFunction() {
 function topFunction() { // eslint-disable-line no-unused-vars
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}*/
+}
