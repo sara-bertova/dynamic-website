@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i|Homemade+Apple&display=swap');
+
 *,
 *:before,
 *:after {
@@ -5,39 +7,40 @@
 }
 
 body {
-    padding: 2rem;
+    background: url(maxresdefault.jpg) no-repeat right 50%;
+    background-size: cover;
+    height: 100vh;
+    background-color: #262629;
+    font-family: 'Arimo', sans-serif;
 }
 
-main {
-    /* Fallback layout for browsers that do not support grid - see https://caniuse.com/#search=grid */
+/*main {
     max-width: 500px;
     margin: 0 auto;
 }
 
 article {
     margin: 1rem 0;
+}*/
+
+
+/*@supports (display: grid) {*/
+section{
+    max-width: none;
+    margin: 0;
 }
 
-    /* CSS that applies to browsers that support grid */
-@supports (display: grid) {
-    main {
-        max-width: none;
-        margin: 0;
-    }
+article {
+    margin: 0;
+}
 
-    article {
-        margin: 0;
-    }
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
+}
 
-    main {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        /* Keep adding new columns - even if theres is no content for them. content does not alwys take up full width */
-        /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
-        /* Don't add more columns than theres is content for. && +content "always" take full width */
-        grid-gap: 1rem;
-    }
-} /* END @supports grid */
+/*}*/
 
 article {
     display: flex;
@@ -48,8 +51,6 @@ article > img {
     order: -1;
     align-self: center;
 }
-
-/* has a default of stretched - we don't do that on images - remember: max-width: 100%; height: auto */
 
 article {
     padding: 2rem;
@@ -64,56 +65,194 @@ article > p {
 }
 
 main {
-    font-family: Avenir, Roboto, Helvetica, san-serif;
+    font-family: 'Arimo', sans-serif;
     font-size: 80%;
 }
 
 article {
     border: 1px solid black;
-    border-radius: 1rem;
+    background-color: white;
 }
 
 article > button {
     margin-top: auto;
-    /* to push it to the bottom of the box & margin-top: auto takes the available space */
-    background: teal;
+    background: #752227;
     color: white;
     padding: 0.5rem;
     border: none;
-    border-radius: 1rem;
     font-size: 1.2rem;
+    font-weight: bold;
 }
 
-img{
+article > button:hover {
+    opacity: 65%;
+    /*border: solid #752227 2px;*/
+}
+
+nav {
+    background-color: black;
+    opacity: 85%;
+    font-size: 30px;
+    text-align: right;
+    font-weight: bold;
+    padding: 2% 0 2% 1%;
+    /*position:fixed;*/
+}
+
+nav a {
+    padding: 2%;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    color: #FFA401;
+}
+
+header {
+    padding-left: 0%;
+    padding-top: 0%;
+}
+
+h1 {
+    font-family: 'Homemade Apple', cursive;
+    font-size: 75px;
+    text-align: center;
+    padding-top: 8%;
+    color: white;
+    text-shadow: 5px 7px 5px #000000;
+}
+
+img {
     max-width: 100%;
     height: auto;
 }
 
-.veget{
+.veget {
     display: none;
     max-width: 50%;
 }
-
-/*.soldout{
+.show{
+    display:block;
+}
+.soldout{
     background-color: #C73A41;
     opacity: 25%;
-}*/
+}
 
 .hide {
-  display: none;
+    display: none;
 }
+
 .modal-background {
-  position: fixed;
-  z-index: 10;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
 }
+
 .modal-content {
-  background-color: #fefefe;
-  border: 1px solid #7c1f17;
-  margin: 1em;
-  padding: 2em;
+    background-color: #fefefe;
+    border: 1px solid #7c1f17;
+    margin: 1em;
+    padding: 2em;
+}
+
+#menu {
+    color: black;
+    text-shadow: 5px 7px 5px #ffffff;
+}
+
+h2 {
+    font-family: 'Homemade Apple', cursive;
+    text-align: center;
+    color: white;
+    margin: 8% 0 2% 0;
+    font-size: 30px;
+    grid-column:1/-1;
+}
+
+div.button {
+    text-align: center;
+    padding-top: 5%;
+    opacity: 85%;
+}
+
+div.button a {
+    text-decoration: none;
+    background-color: #FFA401;
+    padding: 1.5% 3% 1.5% 3%;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+}
+
+div.button a:hover {
+    background-color: white;
+    color: #FFA401;
+}
+
+h3 {
+    text-align: center;
+    padding-bottom: 5%;
+    font-size: 20px;
+    color: #752227;
+}
+
+.price, .discount {
+    text-align: center;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #FFA401;
+}
+.discount span {
+    font-size: 30px;
+}
+.disc{
+    text-decoration: line-through;
+    opacity: 50%;
+}
+p {
+    font-size: 15px;
+}
+
+footer {
+    padding-top: 2%;
+}
+
+/*#topBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    box-shadow: 2px 2px 2px black;
+    z-index: 99;
+
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    background-color: #ffffff;
+    color: #0a0c19;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 30px 0px;
+    display: none;
+    font-weight: 900;
+}*/
+
+@media only screen and (max-width:700px) {
+    h1 {
+        font-size: 40px;
+    }
+
+
+    nav a {
+        display: block;
+    }
 }

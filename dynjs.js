@@ -52,33 +52,34 @@ function showDish(dish) {
     const clone = template.cloneNode(true);
 
     clone.querySelector("h3").textContent = dish.name;
-    clone.querySelector(".category span").textContent = dish.category;
-    clone.querySelector(".ident span").textContent = dish.id;
+    /*clone.querySelector(".category span").textContent = dish.category;
+    clone.querySelector(".ident span").textContent = dish.id;*/
     clone.querySelector(".sd").textContent = dish.shortdescription;
     /*clone.querySelector(".veg span").textContent = dish.vegetarian;*/
     clone.querySelector(".alcohol span").textContent = dish.alcohol;
-    clone.querySelector(".dis span").textContent = dish.discount;
-    clone.querySelector(".so span").textContent = dish.soldout;
+    /*clone.querySelector(".dis span").textContent = dish.discount;*/
+    /*clone.querySelector(".so span").textContent = dish.soldout;*/
     clone.querySelector(".price span").textContent = dish.price;
     clone.querySelector(".image").src = smallImg;
 
     if (dish.discount) {
-        clone.querySelector(".price").style.textDecoration = "line-through";
+        /*clone.querySelector(".price").style.textDecoration = "line-through";*/
+        clone.querySelector(".price").classList.add("disc")
         const newPrice = Math.round(dish.price - dish.price * dish.discount / 100);
         clone.querySelector(".discount span").textContent = newPrice;
     } else {
-        clone.querySelector(".dis").remove();
         clone.querySelector(".discount").remove();
     }
 
     if (dish.vegetarian) {
-        clone.querySelector(".veget").style.display = "block"
+        /*clone.querySelector(".veget").style.display = "block"*/
+        clone.querySelector(".veget").classList.add("show");
     }
 
     if (dish.soldout) {
-        clone.querySelector("article").style.backgroundColor = "#C73A41"
-        clone.querySelector("article").style.opacity = "25%"
-        /*clone.querySelector("article").classList.add(".soldout")*/
+        /*clone.querySelector("article").style.backgroundColor = "#C73A41"
+        clone.querySelector("article").style.opacity = "25%"*/
+        clone.querySelector("article").classList.add("soldout")
     }
 
     clone.querySelector("button").addEventListener("click", () => {
@@ -86,7 +87,6 @@ function showDish(dish) {
       .then(res => res.json())
       .then(showDetails);
   });
-
     document.querySelector(`#${dish.category}`).appendChild(clone);
     /*document.querySelector("#dw").appendChild(clone);*/
 }
@@ -96,3 +96,24 @@ function showDetails(data) {
   modal.querySelector(".modal-description").textContent = data.longdescription;
   modal.classList.remove("hide");
 }
+
+
+/*window.onscroll = function () {
+    stickybar()
+    scrollFunction()
+};
+
+function scrollFunction() {
+    var topBtn = document.getElementById("topBtn");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() { // eslint-disable-line no-unused-vars
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}*/
