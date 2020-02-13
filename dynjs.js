@@ -50,13 +50,7 @@ function showDish(dish) {
     const clone = template.cloneNode(true);
 
     clone.querySelector("h3").textContent = dish.name;
-    /*clone.querySelector(".category span").textContent = dish.category;
-    clone.querySelector(".ident span").textContent = dish.id;*/
     clone.querySelector(".sd").textContent = dish.shortdescription;
-    /*clone.querySelector(".veg span").textContent = dish.vegetarian;*/
-    /*clone.querySelector(".alcohol").textContent = dish.alcohol;*/
-    /*clone.querySelector(".dis span").textContent = dish.discount;*/
-    /*clone.querySelector(".so span").textContent = dish.soldout;*/
     clone.querySelector(".price span").textContent = dish.price;
     clone.querySelector(".image").src = smallImg;
 
@@ -80,31 +74,31 @@ function showDish(dish) {
         clone.querySelector("article").classList.add("soldout")
     }
 
-    if(dish.alcohol != "0"){
+    if (dish.alcohol != "0") {
         console.log("yeah")
         clone.querySelector(".alcohol").textContent = "Alcohol: " + `${dish.alcohol}` + "%";
-    }else{
+    } else {
         clone.querySelector(".alcohol").textContent = "Alcohol free";
     }
 
     clone.querySelector("button").addEventListener("click", () => {
-    fetch(`https://kea-alt-del.dk/t5/api/product?id=${dish.id}`)
-      .then(res => res.json())
-      .then(showDetails);
-  });
+        fetch(`https://kea-alt-del.dk/t5/api/product?id=${dish.id}`)
+            .then(res => res.json())
+            .then(showDetails);
+    });
     document.querySelector(`#${dish.category}`).appendChild(clone);
-    /*document.querySelector("#dw").appendChild(clone);*/
 }
 
-function getImageName(imageName){
+function getImageName(imageName) {
     const base = "https://kea-alt-del.dk/t5/site/imgs/";
     return base + "small/" + imageName + "-sm.jpg";
 }
+
 function showDetails(data) {
-  modal.querySelector(".modal-name").textContent = data.name;
-  modal.querySelector(".modal-description").textContent = data.longdescription;
+    modal.querySelector(".modal-name").textContent = data.name;
+    modal.querySelector(".modal-description").textContent = data.longdescription;
     modal.querySelector(".modal-image").src = getImageName(data.image);
-  modal.classList.remove("hide");
+    modal.classList.remove("hide");
 }
 
 
@@ -121,8 +115,8 @@ function scrollFunction() {
     }
 }
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() { // eslint-disable-line no-unused-vars
+// click on the button = scroll to the top
+function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
