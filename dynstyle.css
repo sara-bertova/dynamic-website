@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i|Homemade+Apple&display=swap');
 
+:root {
+  --bg-color: #262629;
+  --link-color: #000;
+  --link-hover-color: #000;
+  --color-4: #000;
+  --color-5: #000;
+
+  --primary-font: sans-serif;
+  --secondary-font: serif;
+  --main-text-color: #000;
+
+  --white-space: 1rem;
+}
 
 *,
 *:before,
@@ -11,7 +24,7 @@ body {
     background: url(maxresdefault.jpg) no-repeat right 50%;
     background-size: cover;
     height: 100vh;
-    background-color: #262629;
+    background-color: var(--bg-color);
     font-family: 'Arimo', sans-serif;
 }
 
@@ -338,6 +351,7 @@ footer nav {
 
     h2 {
         font-size: 25px;
+        margin: 10% 0 0 0;
     }
 
     li {
@@ -352,5 +366,8 @@ footer nav {
 @media only screen and (max-width:500px) {
     li {
         max-width: 14%;
+    }
+    h2 {
+        margin: 12% 0 0 0;
     }
 }

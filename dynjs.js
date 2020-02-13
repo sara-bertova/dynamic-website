@@ -38,7 +38,6 @@ function getProducts() {
 }
 
 function showData(jsonData) {
-    console.log(jsonData)
     jsonData.forEach(showDish)
 }
 
@@ -75,7 +74,6 @@ function showDish(dish) {
     }
 
     if (dish.alcohol != "0") {
-        console.log("yeah")
         clone.querySelector(".alcohol").textContent = "Alcohol: " + `${dish.alcohol}` + "%";
     } else {
         clone.querySelector(".alcohol").textContent = "Alcohol free";
