@@ -1,17 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i|Homemade+Apple&display=swap');
 
 :root {
-  --bg-color: #262629;
-  --link-color: #000;
-  --link-hover-color: #000;
-  --color-4: #000;
-  --color-5: #000;
-
-  --primary-font: sans-serif;
-  --secondary-font: serif;
-  --main-text-color: #000;
-
-  --white-space: 1rem;
+    --bg-color: #262629;
+    --link-color: white;
+    --link-hover-color: #A8009D;
+    --color-4: #CCA714;
+    --color-5: #7D00FF;
+    --primary-font: 'Arimo', sans-serif;
+    --secondary-font: 'Homemade Apple', cursive;
 }
 
 *,
@@ -25,7 +21,7 @@ body {
     background-size: cover;
     height: 100vh;
     background-color: var(--bg-color);
-    font-family: 'Arimo', sans-serif;
+    font-family: var(--primary-font);
 }
 
 
@@ -68,7 +64,7 @@ article > p {
 }
 
 main {
-    font-family: 'Arimo', sans-serif;
+    font-family: var(--primary-font);
     font-size: 80%;
 }
 
@@ -78,8 +74,8 @@ article {
 
 article > button {
     margin-top: auto;
-    background: #B39009;
-    color: white;
+    background: var(--color-4);
+    color: var(--link-color);
     padding: 0.5rem;
     border: none;
     font-size: 1.2rem;
@@ -102,13 +98,13 @@ nav {
 
 nav a {
     padding: 2%;
-    color: white;
+    color: var(--link-color);
     text-decoration: none;
     text-transform: uppercase;
 }
 
 nav a:hover {
-    color: #A8009D;
+    color: var(--link-hover-color);
 }
 
 header {
@@ -117,7 +113,7 @@ header {
 }
 
 h1 {
-    font-family: 'Homemade Apple', cursive;
+    font-family: var(--secondary-font);
     font-size: 75px;
     text-align: center;
     padding-top: 4%;
@@ -190,13 +186,13 @@ img {
 }
 
 #menu {
-    color: #B39009;
+    color: var(--color-4);
     margin-bottom: 0;
     margin-top: 9%;
 }
 
 h2 {
-    font-family: 'Homemade Apple', cursive;
+    font-family: var(--secondary-font);
     text-align: center;
     color: white;
     margin: 8% 0 2% 0;
@@ -216,12 +212,12 @@ div.button a {
     padding: 1.5% 3% 1.5% 3%;
     font-weight: bold;
     font-size: 30px;
-    color: white;
+    color: var(--link-color);
 }
 
 div.button a:hover {
     background-color: white;
-    color: #A8009D;
+    color: var(--link-hover-color);
 }
 
 h3 {
@@ -237,11 +233,11 @@ h3 {
     font-style: italic;
     font-weight: bolder;
     font-size: 20px;
-    color: #7D00FF;
+    color: var(--color-5);
 }
 
 .price {
-    color: #CCA714;
+    color: var(--color-4);
 }
 
 .discount span {
@@ -300,7 +296,7 @@ footer nav {
     border-radius: 50%;
     outline: none;
     background-color: #A8009D;
-    color: #ffffff;
+    color: var(--link-color);
     cursor: pointer;
     font-size: 18px;
     margin: 30px 0px;
@@ -311,7 +307,7 @@ footer nav {
 
 #topBtn:hover {
     background-color: #ffffff;
-    color: #A8009D;
+    color: var(--link-hover-color);
 }
 
 @media only screen and (max-width:1200px) {
@@ -367,6 +363,7 @@ footer nav {
     li {
         max-width: 14%;
     }
+
     h2 {
         margin: 12% 0 0 0;
     }
