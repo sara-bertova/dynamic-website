@@ -71,6 +71,7 @@ function showDish(dish) {
         /*clone.querySelector("article").style.backgroundColor = "#C73A41"
         clone.querySelector("article").style.opacity = "25%"*/
         clone.querySelector("article").classList.add("soldout")
+        clone.querySelector(".so").textContent = "SOLD OUT"
     }
 
     if (dish.alcohol != "0") {
